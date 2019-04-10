@@ -6,10 +6,11 @@ module.exports = {
 };
 
 function succeed(item) {
-  const result = {
-    ...item,
-    enhancement: item.enhancement + 1
-  }
+  const result = item;
+
+  if(result.enhancement < 20) {
+    result.enhancement += 1;
+  } 
 
   return result;
 }

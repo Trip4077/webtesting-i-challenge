@@ -63,7 +63,13 @@ describe('Enhancer', () => {
             expect(succeed(item2)).toEqual(expected2);
         });
 
-        it.todo('should not increment if enhancement is 20');
+        it('should not increment if enhancement is 20', () => {
+            const item1 = items[2];
+            const item2 = items[6];
+
+            expect(succeed(item1)).toEqual(item1);
+            expect(succeed(item2)).toEqual(item2);
+        });
 
         it.todo('should not change durability');
 
