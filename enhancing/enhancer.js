@@ -13,7 +13,7 @@ function succeed(item) {
       && isNaN(Number(result.enhancement))) {
         
     throw new Error;
-    
+
   } else {
     if(Number(result.enhancement) < 20) {
       result.enhancement += 1;
@@ -24,7 +24,13 @@ function succeed(item) {
 }
 
 function fail(item) {
-  return { ...item };
+  const result = {
+    ...item
+  }
+
+  result.durability -= 5;
+
+  return result;
 }
 
 function repair(item) {
