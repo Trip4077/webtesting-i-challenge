@@ -127,7 +127,23 @@ describe('Enhancer', () => {
             expect(fail(item2)).toEqual(expected2);
         });
 
-        it.todo('if items enhancement is more than 15 decrement durability by 10');
+        it('if items enhancement is more than 15 decrement durability by 10', () => {
+            const item1 = items[12];
+            const item2 = items[13];
+
+            const expected1 = {
+                ...item1,
+                durability: item1.durability - 10
+            }
+
+            const expected2 = {
+                ...item2,
+                durability: item2.durability - 10
+            }
+       
+            expect(fail(item1)).toEqual(expected1);
+            expect(fail(item2)).toEqual(expected2);
+        });
 
         it.todo('if items enhancement is more than 16 decrement enhancement by 1');
 

@@ -11,4 +11,6 @@ module.exports = [
     { name: 'Elder Wand', enhancement: undefined, durability: 51 },                     // --9--
     { name: 'Jet Li\'s Fist', enhancement: '51', durability: Infinity },                // --10--
     { name: 'My Fist', enhancement: 'troy', durability: -Infinity },                    // --11--
+    { name: 'Mjolnir', enhancement: 18, durability: 60 },                               // --12--
+    { name: 'Orcish Dagger', enhancement: 15, durability: 42 },                         // --13--
 ];

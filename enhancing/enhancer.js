@@ -28,7 +28,7 @@ function fail(item) {
     ...item
   }
 
-  result.durability -= 5;
+  result.enhancement >= 15 ? result.durability -= 10 : result.durability -= 5;
 
   return result;
 }
