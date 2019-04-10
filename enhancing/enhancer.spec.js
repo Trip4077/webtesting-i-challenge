@@ -161,4 +161,10 @@ describe('Enhancer', () => {
 
         it.todo('if items enhancement is a string convert if possible else throw error');
     });
+
+    describe('get()', () => {
+        it.todo('if items enhancement is 0 name is unchanged');
+
+        it.todo('if items enhancment (e) is over zero name is changed to [+x]name')
+    });
 })
