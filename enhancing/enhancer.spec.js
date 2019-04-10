@@ -29,5 +29,17 @@ describe('Enhancer', () => {
             expect(repair(undefinedDurability)).toEqual(undefinedDurability);
         })
 
+        it('should convert a string to number if conversion possible else throw error', () => {
+            const convertable = items[4];
+            const nonConvertable = items[7];
+
+            const expectedConvert = {
+                ...convertable,
+                durability: 100
+            }
+            
+            expect(repair(convertable)).toEqual(expectedConvert);
+            expect(() => { repair(nonConvertable) }).toThrow();
+        })
     })
 })

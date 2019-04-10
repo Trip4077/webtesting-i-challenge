@@ -17,8 +17,14 @@ function repair(item) {
   const result = { ...item };
 
   if(result.durability) {
-    result.durability = 100;
-  } 
+
+    if(typeof result.durability !== 'number' && isNaN(Number(result.durability))) {
+      console.log('test')
+      throw new Error;
+    } else {
+      result.durability = 100;
+    }
+  }
 
   return result;
 }
