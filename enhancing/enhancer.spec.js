@@ -1,4 +1,4 @@
-const { repair, succeed, fail } = require('./enhancer.js');
+const { repair, succeed, fail, get } = require('./enhancer.js');
 const items = require('../items');
 
 // test away!
@@ -163,8 +163,30 @@ describe('Enhancer', () => {
     });
 
     describe('get()', () => {
-        it.todo('if items enhancement is 0 name is unchanged');
+        it('if items enhancement is 0 name is unchanged', () => {
+            const noChange = items[3];
+            const change = items[1]
 
-        it.todo('if items enhancment (e) is over zero name is changed to [+x]name')
+            expect(get(noChange).name).toEqual(items[3].name);
+            expect(get(change).name).toEqual(items[1].name);
+        });
+
+        it('if items enhancment (e) is over zero name is changed to [+x]name', () => {
+            const item1 = items[0];
+            const item2 = items[14];
+
+            const expected1 = {
+                ...item1,
+                name: `[+${item1.enhancement}]${item1.name}`
+            }
+
+            const expected2 = {
+                ...item2,
+                name: `[+${item2.enhancement}]${item2.name}`
+            }
+
+            expect(get(item1)).toEqual(expected1);
+            expect(get(item2)).toEqual(expected2);            
+        });
     });
 })

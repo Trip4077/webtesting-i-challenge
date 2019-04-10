@@ -46,8 +46,6 @@ function fail(item) {
       durability: item.durability - 5
     }
   }
-
-  return item;
 }
 
 function repair(item) {
@@ -67,5 +65,14 @@ function repair(item) {
 }
 
 function get(item) {
-  return { ...item };
+
+  if(item.enhancement === 0 
+    || typeof item.enhancement !== 'number') {
+
+      return { ...item };
+  } else {
+    item.name = `[+${item.enhancement}]${item.name}`
+
+    return { ...item };
+  }
 }
