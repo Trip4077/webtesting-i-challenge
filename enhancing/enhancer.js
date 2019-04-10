@@ -8,9 +8,17 @@ module.exports = {
 function succeed(item) {
   const result = item;
 
-  if(result.enhancement < 20) {
-    result.enhancement += 1;
-  } 
+  if(result.enhancement 
+      && typeof result.enhancement !== 'number' 
+      && isNaN(Number(result.enhancement))) {
+        
+    throw new Error;
+    
+  } else {
+    if(Number(result.enhancement) < 20) {
+      result.enhancement += 1;
+    } 
+  }
 
   return result;
 }

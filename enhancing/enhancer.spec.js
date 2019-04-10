@@ -71,10 +71,39 @@ describe('Enhancer', () => {
             expect(succeed(item2)).toEqual(item2);
         });
 
-        it.todo('should not change durability');
+        it('should not change durability', () => {
+            const item1 = items[0];
+            const item2 = items[4];
+            const item3 = items[6];
 
-        it.todo('should return the item unchanged if enhancement is null or undefined');
+            const numDur = items[0].durability;
+            const strDur = items[4].durability;
+            const nullDur = items[6].durability;
 
-        it.todo('should convert a string to number if conversion possible else throw error');
-    })
+            expect(succeed(item1).durability).toBe(numDur);
+            expect(succeed(item2).durability).toBe(strDur);
+            expect(succeed(item3).durability).toBe(nullDur);
+        });
+
+        it('should return the item unchanged if enhancement is null or undefined', () => {
+            const item1 = items[8];
+            const item2 = items[9];
+
+            expect(succeed(item1)).toEqual(item1);
+            expect(succeed(item2)).toEqual(item2);
+        });
+
+        it('should convert a string to number if conversion possible else throw error', () => { 
+            const convertable = items[10];
+            const nonConvertable = items[11];
+
+            const expectedConvert = {
+                ...convertable,
+                enhancement: convertable.enhancement += 1 
+            }
+
+            expect(succeed(convertable)).toEqual(expectedConvert);
+            expect(() => { succeed(nonConvertable) }).toThrow();
+        });
+    });
 })
