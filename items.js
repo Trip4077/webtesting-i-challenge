@@ -13,4 +13,5 @@ module.exports = [
     { name: 'My Fist', enhancement: 'troy', durability: -Infinity },                    // --11--
     { name: 'Mjolnir', enhancement: 18, durability: 60 },                               // --12--
     { name: 'Orcish Dagger', enhancement: 15, durability: 42 },                         // --13--
+    { name: 'Mjolnir', enhancement: 16, durability: 60 },                               // --14--
 ];

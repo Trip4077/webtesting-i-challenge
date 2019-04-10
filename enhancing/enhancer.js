@@ -24,13 +24,30 @@ function succeed(item) {
 }
 
 function fail(item) {
-  const result = {
-    ...item
+  // let result = {
+  //   ...item
+  // }
+  
+  //result.enhancement >= 15 ? result.durability -= 10 : result.durability -= 5;
+  if(item.enhancement > 16) {
+    return {
+      ...item,
+      durability: item.durability - 10,
+      enhancement: item.enhancement - 1
+    }
+  } else if(item.enhancement >= 15) {
+    return {
+      ...item,
+      durability: item.durability - 10
+    }
+  } else {
+    return {
+      ...item,
+      durability: item.durability - 5
+    }
   }
 
-  result.enhancement >= 15 ? result.durability -= 10 : result.durability -= 5;
-
-  return result;
+  return item;
 }
 
 function repair(item) {
