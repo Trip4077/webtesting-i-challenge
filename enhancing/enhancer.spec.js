@@ -1,4 +1,4 @@
-const { repair, succeed } = require('./enhancer.js');
+const { repair, succeed, fail } = require('./enhancer.js');
 const items = require('../items');
 
 // test away!
@@ -105,5 +105,34 @@ describe('Enhancer', () => {
             expect(succeed(convertable)).toEqual(expectedConvert);
             expect(() => { succeed(nonConvertable) }).toThrow();
         });
+    });
+
+    describe('fail()', () => {
+
+        it('if items enhancement is less than 15 decrement durability by 5', () => {
+            const item1 = items[0];
+            const item2 = items[1];
+
+            const expected1 = {
+                ...item1,
+                durability: item1.durability - 5
+            }
+
+            const expected2 = {
+                ...item2,
+                durability: item2.durability - 5
+            }
+       
+            expect(fail(item1)).toEqual(expected1);
+            expect(fail(item2)).toEqual(expected2);
+        });
+
+        it.todo('if items enhancement is more than 15 decrement durability by 10');
+
+        it.todo('if items enhancement is more than 16 decrement enhancement by 1');
+
+        it.todo('if items enhancement is null or undefined return item');
+
+        it.todo('if items enhancement is a string convert if possible else throw error');
     });
 })
