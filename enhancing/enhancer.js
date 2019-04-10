@@ -15,7 +15,10 @@ function fail(item) {
 
 function repair(item) {
   const result = { ...item };
-  result.durability = 100; 
+
+  if(result.durability) {
+    result.durability = 100;
+  } 
 
   return result;
 }

@@ -1,0 +1,1 @@
+If durability is null/undefined, what should be returned?
